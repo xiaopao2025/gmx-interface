@@ -1,15 +1,14 @@
-FROM node:18-alpine AS builder
+FROM node:22 AS builder
 
 WORKDIR /app
 
-RUN apk add --no-cache python3 make g++ && \
-    corepack enable && corepack prepare yarn@stable --activate
+RUN corepack enable && corepack prepare yarn@stable --activate
 
 COPY .yarn .yarn
 
 COPY package.json yarn.lock .yarnrc.yml ./
 
-RUN yarn cache clean && yarn install --immutable --check-cache --ignore-optional
+RUN yarn cache clean && yarn install --immutable --check-cache
 
 COPY . .
 
