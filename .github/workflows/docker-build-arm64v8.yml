@@ -22,6 +22,4 @@ jobs:
           context: .
           push: true
           platforms: linux/arm64/v8
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/gmx-interface:latest
-      - name: Verify pushed image
-        run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/gmx-interface:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/gmx-interface:arm64v8
