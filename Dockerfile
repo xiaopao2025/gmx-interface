@@ -9,7 +9,7 @@ COPY .yarn .yarn
 
 COPY package.json yarn.lock .yarnrc.yml ./
 
-RUN yarn cache clean && yarn add esbuild --prefer-offline && yarn install --immutable --check-cache --ignore-optional
+RUN yarn cache clean && yarn install --immutable --check-cache --ignore-optional
 
 COPY . .
 
