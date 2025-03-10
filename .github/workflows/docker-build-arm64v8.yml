@@ -1,4 +1,4 @@
-name: Build and Push to Docker Hub
+name: Build arm64v8 and Push to Docker Hub
 on:
   workflow_dispatch:  
   #schedule:
