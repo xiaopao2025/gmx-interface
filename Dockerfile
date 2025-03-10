@@ -4,8 +4,9 @@ WORKDIR /app
 
 RUN corepack enable && corepack prepare yarn@stable --activate
 
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+COPY package.json yarn.lock .yarnrc.yml ./
+
+RUN yarn cache clean && yarn install --immutable --check-cache
 
 COPY . .
 
